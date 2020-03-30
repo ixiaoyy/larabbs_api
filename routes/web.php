@@ -32,9 +32,9 @@ Auth::routes();
 //Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 //
 //// Email 认证相关路由
-//Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-//Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
-//Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 // 用户资源路由，等同于
 //Route::get('/users/{user}', 'UsersController@show')->name('users.show');
