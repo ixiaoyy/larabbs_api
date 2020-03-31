@@ -9,6 +9,9 @@ use App\Models\User;
 
 use App\Http\Requests\UserRequest;
 
+// 引入图片上传帮助类
+use App\Handlers\ImageUploadHandler;
+
 class UsersController extends Controller
 {
     // 创建一个 show 方法展示用户个人页面
@@ -32,9 +35,18 @@ class UsersController extends Controller
       * User: YuY
       * Date: 2020/3/30
       */
-    public function update(UserRequest $request, User $user)
+    public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
-        $user->update($request->all());
-        return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功!');
+        $data = $request->all();
+
+        if ($request->avatar) {
+            $result = $uploader->save($request->avatar, 'avatars', $user->id);
+            if ($result) {
+                $data['avatar'] = $result['path'];
+            }
+        }
+
+        $user->update($data);
+        return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
     }
 }
