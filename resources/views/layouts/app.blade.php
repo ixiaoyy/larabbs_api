@@ -19,7 +19,7 @@
 </head>
 <body>
     {{--route_class() : 自定义方法 --}}
-    <div id="app" content="{{ route_class() }}-page">
+    <div id="app" class="{{ route_class() }}-page">
         {{--包含其他路由--}}
         @include('layouts._header')
 
