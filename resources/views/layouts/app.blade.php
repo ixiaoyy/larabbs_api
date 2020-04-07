@@ -11,9 +11,9 @@
     {{-- jq 写法：$('meta[name="csrf-token"]').attr("content"));--}}
 
     {{--@yield : 站位，并附加默认值 继承此模板的blade页面才能用  --}}
-    <title>@yield('title', 'LaraBBS') -- Laravel 进阶教程</title>
-
-    <meta name="description" content="@yield('description', 'LaraBBS 爱好者社区')" />
+    <title>@yield('title', 'LaraBBS') - {{ setting('site_name', 'Laravel 进阶教程') }}</title>
+    <meta name="description" content="@yield('description', setting('seo_description', 'LaraBBS 爱好者社区。'))" />
+    <meta name="keyword" content="@yield('keyword', setting('seo_keyword', 'LaraBBS,社区,论坛,开发者论坛'))" />
 
     {{--mix() : 主要根据 webpack.mix.js 的逻辑来生成 CSS 文件链接--}}
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
