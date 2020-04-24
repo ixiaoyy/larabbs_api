@@ -7,11 +7,11 @@ use Illuminate\Support\ServiceProvider;
 
 class EasySmsServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
+    public function boot()
+    {
+        //
+    }
+
     public function register()
     {
         $this->app->singleton(EasySms::class, function ($app) {
@@ -19,15 +19,5 @@ class EasySmsServiceProvider extends ServiceProvider
         });
 
         $this->app->alias(EasySms::class, 'easysms');
-    }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
     }
 }
