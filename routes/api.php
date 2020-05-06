@@ -51,9 +51,12 @@ Route::prefix('v1')
                 // 某个用户的详情
                 Route::get('users/{user}', 'UsersController@show')
                     ->name('users.show');
-                // 分类列表
+                // 分类类表
                 Route::get('categories', 'CategoriesController@index')
                     ->name('categories.index');
+                // 某个用户发布的话题
+                Route::get('users/{user}/topics', 'TopicsController@userIndex')
+                    ->name('users.topics.index');
 
                 // 登录后可以访问的接口
                 Route::middleware('auth:api')->group(function() {

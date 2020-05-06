@@ -1,35 +1,17 @@
 <?php
 
-namespace App\Http\Requests\Api;
+namespace App\Http\Resources;
 
-class TopicRequest extends FormRequest
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class TopicResource extends JsonResource
 {
-    public function rules()
+    public function toArray($request)
     {
-        switch($this->method()) {
-            case 'POST':
-                return [
-                    'title' => 'required|string',
-                    'body' => 'required|string',
-                    'category_id' => 'required|exists:categories,id',
-                ];
-                break;
-            case 'PATCH':
-                return [
-                    'title' => 'string',
-                    'body' => 'string',
-                    'category_id' => 'exists:categories,id',
-                ];
-                break;
-        }
-    }
+        $data = parent::toArray($request);
+        $data['user'] = new UserResource($this->whenLoaded('user'));
+        $data['category'] = new CategoryResource($this->whenLoaded('category'));
 
-    public function attributes()
-    {
-        return [
-            'title' => '标题',
-            'body' => '话题内容',
-            'category_id' => '分类',
-        ];
+        return $data;
     }
 }
