@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddcff1e7-a81e-4c6c-ba0f-6f89de34d8ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Queries/TopicQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Queries/TopicQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Link.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +181,7 @@
       <updated>1587722458236</updated>
       <workItem from="1587722459453" duration="17975000" />
       <workItem from="1588728545770" duration="7389000" />
-      <workItem from="1588755633990" duration="7818000" />
+      <workItem from="1588755633990" duration="7931000" />
     </task>
     <servers />
   </component>
